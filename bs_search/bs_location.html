@@ -1,0 +1,99 @@
+<!-- 카카오맵이 나오는 페이지로 주소로 학교 검색하기, 로드맵, 그린푸드존   -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- meta charset = utf-8 는 html 파일의 인코딩을 알려주는 태그 -->
+	<meta charset="utf-8">
+	<!-- 웹페이지를 실행했을 때 사오는 화면의 너비를 디바이스에 따르도록 지정하는데
+		 초기 확대 scale을 1 로 지정  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<!-- css style -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/kakaomap.css">
+
+	<!--font-->
+	<!-- link preconnect 으로 현제 페이지에서 도메인의 리소스 참고하는것을 브라우저에
+		 알려 미리 외부 도메인과 연결 설정 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family
+	=Do+Hyeon&family
+	=IBM+Plex+Sans+KR&family
+	=Jua&family
+	=Sunflower:wght@300&display=swap" rel="stylesheet">	
+</head>
+<body>
+	<!-- 로딩중 페이지 -->
+	<div id="loading">
+		<div class="loader"></div>
+	</div>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo 로고를 클릭하면 메인 페이지로 이동-->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- sitemap index.html 즉 메인페이지를 제외하고 다른 탭창을 클릭한 
+				상태로 있으면 오른쪽 위에 home으로 돌아가기 클릭하면 메인 페이지로 이동-->
+			<div id="sitemap">
+				<ul class="sitemap_menu">
+					<li><a href="index.html"><img src="img/home.png" width="20px"> home으로 돌아가기&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<!-- navgation 위에 네비게이션바-->
+			<nav class="nav">
+				<!-- Main_menu -->
+				<!-- 위에 보여지는 메인 메뉴바  -->
+				<ul class="main_menu">
+					<li><a href="howto.html">이용안내</a></li>
+					<li><a href="map.html">부산 둘러보기</a></li>
+					<li><a href="bs_location.html">창업 장소 탐색하기</a></li>
+					<li><a href="if_public.html">창업 정보</a></li>
+				</ul>
+			</nav>
+			<div class="search">
+				<!-- 학교의 주소 검색하는 박스  -->
+				<!-- se1 se2 se3 는 search.js 불러오는 각 초중고등학교 마커 검색 기능  -->
+				<form onsubmit="return false;">
+					<input type="text" placeholder="주소를 입력하세요" value="" id="keyword" size="15" onchange='se1();se2();se3();'> 
+				</form>
+			</div>
+		</header>
+		<!-- section -->
+		<section id="section">
+			<div class="content">
+				<div class="api_map">
+					<div id="container">
+					    <div id="rvWrapper">
+					        <div id="roadview" style="width:100%;height:100%;"></div> <!-- 로드뷰를 표시할 div 입니다 -->
+					        <div id="close" title="로드뷰닫기" onclick="closeRoadview()"><span class="img"></span></div>
+					    </div>    	<!--  클릭하면 로드뷰 control . -->
+					    <div id="mapWrapper">
+					        <div id="map" style="width:100%;height:100%"></div> <!-- 지도를 표시할 div 입니다 -->
+					        <div id="roadviewControl" onclick="setRoadviewRoad()"></div> 
+					    </div>
+					</div>
+						<!-- 카카오맵 받아오기-->
+						<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=eb92c4cb1ef08334d28cb57b27ae3ab2&libraries=clusterer,services"></script>
+						
+						<!-- 카카오맵 -->					
+						<script src="js/KakaoMap1.js"></script> <!-- 중학교 데이터 지도에 마커로 표시 -->
+						<script src="js/KakaoMap2.js"></script>	<!-- 초등학교 데이터 지도에 마커로 표시 -->
+						<script src="js/KakaoMap3.js"></script>	<!-- 고등학교 데이터 지도에 마커로 표시 -->
+						
+						<!-- 초 중 고 등학교의 마커들 검색 -->
+						<script src="js/search.js"></script>
+					
+				</div>
+		</section>
+	</div>
+</body>
+</html>
+
+

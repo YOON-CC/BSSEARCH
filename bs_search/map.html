@@ -1,0 +1,353 @@
+<!-- 부산 둘러보기 탭 클릭시 나오는 화면 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- 데이터 가져오기 위한 js  여기를 계속 바꿔여함★★★★★★★★★--> 
+    <script src="js/school.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+
+	<!-- css 스타일 시트 -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/map.css">
+
+	<!--font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+		
+</head>
+<body>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo -->
+			<!-- logo 로고를 클릭하면 메인 페이지로 이동-->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- sitemap-->
+			<!-- sitemap index.html 즉 메인페이지를 제외하고 다른 탭창을 클릭한 상태로 있으면 오른쪽 위에 home으로 돌아가기 클릭하면 메인 페이지로 이동-->
+			<div id="sitemap">
+				<ul class="sitemap_menu">
+					<li><a href="index.html"><img src="img/home.png" width="20px"> home으로 돌아가기&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<!-- navgation 위에 네비게이션바 -->
+			<nav class="nav">
+				<!-- Main_menu -->
+				<!-- 위에 보여지는 메인 메뉴바  -->
+				<ul class="main_menu">					
+					<li><a href="howto.html">이용안내</a></li>
+					<li><a href="map.html">부산 둘러보기</a></li>
+					<li><a href="bs_location.html">창업 장소 탐색하기</a></li>
+					<li><a href="if_public.html">창업 정보</a></li>
+					<!-- <li><a href="#">MENU</a></li> -->
+				</ul>
+			</nav>
+		</header>
+		<!-- section -->
+		<section id="section">
+			<div id="main_visual">
+				<!-- map -->
+				<!-- 만든 부산 지도 부분 위에 구분하기 위해 네모 박스로 구의 이름: 갯수 표시  -->
+				<div class="map">
+					<ul class="box">
+						<!-- 기장군이라는 글자와 기장군에 있는 학교의 갯수 호출 -->
+	                  <li id="CD1" class="TEXT">
+	                  	<a href="javascript:void(0);"  class="m1">기장군:</a>
+						<script type="text/javascript">call3();</script>  <!-- 함수 호출 -->
+               			<p id="n1"></p>	   				   
+	                  </li>
+					  <!-- 금정구이라는 글자와 금정구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD2" class="TEXT">
+	                    <a href="javascript:void(0);" class="m2">금정구:</a>
+						<p id="n2"></p>
+	                  </li>
+					   <!-- 해운대구이라는 글자와 해운대구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD3" class="TEXT">
+	                    <a href="javascript:void(0);" class="m3">해운대구:</a>
+						<p id="n3"></p>
+	                  </li>
+					   <!-- 동래구이라는 글자와 동래구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD4" class="TEXT">
+	                    <a href="javascript:void(0);" class="m4">동래구:</a>
+						<p id="n4"></p>						 
+	                  </li>
+					   <!-- 연제구이라는 글자와 연제구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD5" class="TEXT">
+	                     <a href="javascript:void(0);" class="m5">연제구:</a>
+						<p id="n5"></p>
+	                  </li>
+					   <!-- 수영구이라는 글자와 수영구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD6" class="TEXT">
+	                     <a href="javascript:void(0);" class="m6">수영구:</a>
+						<p id="n6"></p>
+	                  </li>
+					   <!-- 북구이라는 글자와 북구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD7" class="TEXT">
+	                     <a href="javascript:void(0);" class="m7">북구:</a>
+						<p id="n7"></p>
+	                  </li>
+					   <!-- 진구이라는 글자와 진구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD8" class="TEXT">
+						<a href="javascript:void(0);" class="m8">진구:</a>
+						<p id="n8"></p>
+	                  </li>
+					   <!-- 남구이라는 글자와 남구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD9" class="TEXT">
+	                     <a href="javascript:void(0);" class="m9">남구:</a>
+						<p id="n9"></p>
+	                  </li>
+					   <!-- 동구이라는 글자와 동구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD10" class="TEXT">
+	                     <a href="javascript:void(0);" class="m10">동구:</a>
+						<p id="n10"></p>
+	                  </li>
+					   <!-- 서구이라는 글자와 서구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD11" class="TEXT">
+	                     <a href="javascript:void(0);" class="m11">서구:</a>
+						<p id="n11"></p>
+	                  </li>
+					   <!-- 중구이라는 글자와 중구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD12" class="TEXT">
+	                     <a href="javascript:void(0);" class="m12">중구:</a>
+						<p id="n12"></p>
+	                  </li>
+					   <!-- 영도구이라는 글자와 영도구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD13" class="TEXT">
+	                     <a href="javascript:void(0);" class="m13">영도구:</a>
+						 <p id="n13"></p>
+	                  </li>
+					   <!-- 사상구이라는 글자와 사상구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD14" class="TEXT">
+	                     <a href="javascript:void(0);" class="m14">사상구:</a>
+						 <p id="n14"></p>
+	                  </li>
+					   <!-- 사하구이라는 글자와 사하구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD15" class="TEXT">
+	                     <a href="javascript:void(0);" class="m15">사하구:</a>
+						 <p id="n15"></p>
+	                  </li>
+					   <!-- 강서구이라는 글자와 강서구에 있는 학교의 갯수 호출 -->
+	                  <li id="CD16" class="TEXT">
+	                     <a href="javascript:void(0);" class="m16">강서구:</a>
+						 <p id="n16"></p>
+	                  </li>
+	                  <!-- 지도 이미지 부분 -->
+					  <!-- 부산의 구별 각각의 이미지  -->
+		               <ul class="map_img">
+		               	<li id="m1"><img src="img/map/1.png"></li>  <!-- 기장군 -->
+		               	<li id="m2"><img src="img/map/2.png"></li> <!-- 금정구 -->
+		               	<li id="m3"><img src="img/map/3.png"></li> <!-- 해운대구 -->
+		               	<li id="m4"><img src="img/map/4.png"></li> <!-- 동래구 -->
+		               	<li id="m5"><img src="img/map/5.png"></li> <!-- 연제구 -->
+		               	<li id="m6"><img src="img/map/6.png"></li> <!-- 수영구 -->
+		               	<li id="m7"><img src="img/map/7.png"></li> <!-- 북구 -->
+		               	<li id="m8"><img src="img/map/8.png"></li> <!-- 진구 -->
+		               	<li id="m9"><img src="img/map/9.png"></li> <!-- 남구 -->
+		               	<li id="m10"><img src="img/map/10.png"></li> <!-- 동구 -->
+		               	<li id="m11"><img src="img/map/11.png"></li> <!-- 서구 -->
+		               	<li id="m12"><img src="img/map/12.png"></li> <!-- 중구 -->
+		               	<li id="m13"><img src="img/map/13.png"></li> <!-- 영도구 -->
+		               	<li id="m14"><img src="img/map/14.png"></li> <!-- 사상구 -->
+		               	<li id="m15"><img src="img/map/15.png"></li> <!-- 사하구 -->
+		               	<li id="m16"><img src="img/map/16.png"></li> <!-- 강서구 -->
+		               </ul>
+	               </ul>
+				</div>
+				<!-- 구를 클릭하기 전 나오는 텍스트 -->
+				<div class="main_text">
+					<p>나에게 맞는<span><br>창업장소는 어디일까?</span></p>
+				</div>
+
+				<!-- 각 구를 클릭시 나오는 텍스트 -->
+				<!--기장군-->	
+				<div class="show_data1 show_style">
+						<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+						<script src="js/test1.js"></script>
+					<div id="data"> <!--기장군 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list1();</script>  <!-- 함수 호출 -->
+               			<p id="list1"></p>	   		
+					</div>
+				</div>
+				
+				<!--금정구-->	
+				<div class="show_data2 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test2.js"></script>
+					<div id="data"><!--금정구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list2();</script>  <!-- 함수 호출 -->
+               			<p id="list2"></p>	   		
+					</div>
+				</div>
+
+				<!--해운대구-->	
+				<div class="show_data3 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test3.js"></script>
+					<div id="data"> <!--해운대구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list3();</script>  <!-- 함수 호출 -->
+               			<p id="list3"></p>	   		
+					</div>
+				</div>
+
+				<!--동래구-->	
+				<div class="show_data4 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test4.js"></script>
+					<div id="data"> <!--동래구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list4();</script>  <!-- 함수 호출 -->
+               			<p id="list4"></p>	   		
+					</div>
+				</div>
+
+				<!--연제구-->	
+				<div class="show_data5 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test5.js"></script>
+					<div id="data"> <!--연제구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list5();</script>  <!-- 함수 호출 -->
+               			<p id="list5"></p>	   		
+					</div>
+				</div>
+
+				<!--수영구-->	
+				<div class="show_data6 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test6.js"></script>
+					<div id="data"> <!--수영구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list6();</script>  <!-- 함수 호출 -->
+               			<p id="list6"></p>	   		
+					</div>
+				</div>
+
+				<!--북구-->	
+				<div class="show_data7 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test7.js"></script>
+					<div id="data"> <!--북구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list7();</script>  <!-- 함수 호출 -->
+               			<p id="list7"></p>	   		
+					</div>
+				</div>
+
+				<!--부산 진구-->	
+				<div class="show_data8 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test8.js"></script>
+					<div id="data"> <!--진구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list8();</script>  <!-- 함수 호출 -->
+               			<p id="list8"></p>	   		
+					</div>
+				</div>
+
+				<!--남구-->	
+				<div class="show_data9 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test9.js"></script>
+					<div id="data"> <!--남구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list9();</script>  <!-- 함수 호출 -->
+               			<p id="list9"></p>	   		
+					</div>
+				</div>
+
+				<!--동구-->	
+				<div class="show_data10 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test10.js"></script>
+					<div id="data"> <!--동구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list10();</script>  <!-- 함수 호출 -->
+               			<p id="list10"></p>	   		
+					</div>
+				</div>
+
+				<!--서구-->	
+				<div class="show_data11 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test11.js"></script>
+					<div id="data"> <!--서구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list11();</script>  <!-- 함수 호출 -->
+               			<p id="list11"></p>	   		
+					</div>
+				</div>
+
+				<!--중구-->	
+				<div class="show_data12 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test12.js"></script>
+					<div id="data"> <!--중구 학교와 주소 의 데이터 글자 받아오기 -->	
+						<script type="text/javascript">list12();</script>  <!-- 함수 호출 -->
+               			<p id="list12"></p>	   		
+					</div>
+				</div>
+
+				<!--영도구-->	
+				<div class="show_data13 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test13.js"></script>
+					<div id="data"> <!--영도구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list13();</script>  <!-- 함수 호출 -->
+               			<p id="list13"></p>	   		
+					</div>
+				</div>
+
+				<!--사상구-->	
+				<div class="show_data14 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test14.js"></script>
+					<div id="data"> <!--사상구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list14();</script>  <!-- 함수 호출 -->
+               			<p id="list14"></p>	   		
+					</div>
+				</div>
+
+				<!--사하구-->	
+				<div class="show_data15 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test15.js"></script>
+					<div id="data"> <!--사하구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list15();</script>  <!-- 함수 호출 -->
+               			<p id="list15"></p>	   		
+					</div>
+				</div>
+
+				<!--강서구-->	
+				<div class="show_data16 show_style">
+					<div id="search_text"><img id="search_img" src="img/search.png">학군 살펴보기</div>
+					<!-- xml 파일로 받아온 공공 데이터 파싱  -->
+					<script src="js/test16.js"></script>
+					<div id="data"> <!--강서구 학교와 주소 의 데이터 글자 받아오기 -->		
+						<script type="text/javascript">list16();</script>  <!-- 함수 호출 -->
+               			<p id="list16"></p>	   		
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<script src="js/map.js"></script>
+	</div>
+</body>
+</html>

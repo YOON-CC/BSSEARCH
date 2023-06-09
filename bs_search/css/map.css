@@ -1,0 +1,318 @@
+/* ################부산 지도 스타일 지정 #######################*/
+/*지도 이미지: map.html*/
+
+/* 부산지도는 구별 이미지를 합쳐서 만든것임으로 위치 css으로 조정 */
+#main_visual .map img {
+  position: absolute;
+  width: 50%;
+  left: 0;
+}
+/*지도 css*/
+/*기장군*/
+#CD1 {
+  left: 34%;
+  top: 20%;
+}
+
+/*금정구*/
+#CD2 {
+  left: 24%;
+  top: 25%;
+}
+
+/*해운대구*/
+#CD3 {
+  left: 30%;
+  bottom: 53%;
+}
+
+/*동래구*/
+#CD4 {
+  left: 23%;
+  bottom: 57%;
+}
+
+/*연제구*/
+#CD5 {
+  left: 24%;
+  bottom: 51%;
+}
+
+/*수영구*/
+#CD6 {
+  left: 26%;
+  bottom: 46%;
+}
+
+/*북구*/
+#CD7 {
+  left: 18.5%;
+  bottom: 62%;
+}
+
+/*진구*/
+#CD8 {
+  left: 20%;
+  bottom: 50%;
+}
+
+/*남구*/
+#CD9 {
+  left: 24%;
+  bottom: 42%;
+}
+
+/*동구*/
+#CD10 {
+  left: 20%;
+  bottom: 42%;
+}
+
+/*서구*/
+#CD11 {
+  left: 18%;
+  bottom: 38%;
+}
+
+/*중구*/
+#CD12 {
+  left: 20%;
+  bottom: 36%;
+}
+
+/*영도구*/
+#CD13 {
+  left: 22%;
+  bottom: 31%;
+}
+
+/*사상구*/
+#CD14 {
+  left: 15.5%;
+  bottom: 48%;
+}
+
+/*사하구*/
+#CD15 {
+  left: 14%;
+  bottom: 31%;
+}
+
+/*강서구*/
+#CD16 {
+  left: 10%;
+  bottom: 50%;
+}
+
+.box {
+  display: block;
+}
+
+/*map img*/
+.map_img {
+  width: 100%;
+  position: relative;
+  left: 0;
+}
+.map_img li {
+  position: absolute;
+}
+.map_img li img {
+  width: 100%;
+}
+/*map 위치 지정*/
+/*기장군*/
+#m1 {
+  width: 573px;
+  left: 481px;
+  top: 30px;
+}
+/*금정구*/
+#m2 {
+  width: 305px;
+  left: 376px;
+  top: 160px;
+}
+/*해운대구*/
+#m3 {
+  width: 296px;
+  left: 482px;
+  top: 257px;
+  transform: rotate(1deg);
+}
+/*동래구*/
+#m4 {
+  width: 205px;
+  left: 380px;
+  top: 290px;
+  transform: rotate(1deg);
+}
+/*연제구*/
+#m5 {
+  width: 200px;
+  left: 387px;
+  top: 336px;
+  transform: rotate(2deg);
+}
+/*수영구*/
+#m6 {
+  width: 99px;
+  left: 456px;
+  top: 368px;
+  transform: rotate(2deg);
+}
+/*북구*/
+#m7 {
+  width: 188px;
+  left: 308px;
+  top: 206px;
+  transform: rotate(0.7deg);
+}
+/*진구*/
+#m8 {
+  width: 198px;
+  left: 338px;
+  top: 336px;
+  transform: rotate(1deg);
+}
+/*남구*/
+#m9 {
+  width: 198px;
+  left: 401px;
+  top: 400px;
+  transform: rotate(2deg);
+}
+/*동구*/
+#m10 {
+  width: 112px;
+  left: 349px;
+  top: 420px;
+  transform: rotate(1deg);
+}
+/*서구*/
+#m11 {
+  width: 103px;
+  left: 308px;
+  top: 425px;
+}
+/*중구*/
+#m12 {
+  width: 100px;
+  left: 347px;
+  top: 464px;
+}
+/*영도구*/
+#m13 {
+  width: 200px;
+  left: 359px;
+  top: 484px;
+}
+/*사상구*/
+#m14 {
+  width: 192px;
+  left: 248px;
+  top: 335.5px;
+  transform: rotate(1deg);
+}
+/*사하구*/
+#m15 {
+  width: 242px;
+  left: 217px;
+  top: 452px;
+}
+/*강서구*/
+#m16 {
+  width: 582px;
+  left: 19px;
+  top: 277px;
+  transform: rotate(1deg);
+}
+
+/*지도 위에 구의 명이 기제 되어있는 네모 박스*/
+.TEXT {
+  z-index: 10;
+  fill: #000000;
+  font-weight: bold;
+  text-anchor: middle;
+  alignment-baseline: middle;
+  width: 4%;
+  padding: 10px 0;
+  height: auto;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background: rgba(0, 117, 184, 0.5);
+  margin: 1px;
+  position: absolute;
+  transition: all 0.3s;
+}
+.TEXT a {
+  float: left;
+  padding-left: 12%;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+  font-size: 12px;
+  color: black;
+}
+.TEXT p {
+  font-size: 14px;
+  font-weight: bold;
+}
+.TEXT:hover {
+  background: rgba(0, 71, 112, 0.7);
+}
+
+/*★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+/*★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+/*★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★*/
+/*클릭시 보여질 각 구의 데이터*/
+#main_visual .show_style {
+  display: none;
+  width: 30%;
+  height: 80%;
+  position: absolute;
+  right: 10%;
+}
+
+/*데이터가 출력될 부분에 스크롤바 적용*/
+#data {
+  overflow: scroll; /*넘어가는 부분은 스크롤*/
+  overflow-x: hidden; /*가로 스크롤 없애기*/
+  height: 85%;
+  width: 100%;
+  background-color: aliceblue;
+  border: 10px solid rgba(255, 186, 0);
+}
+/*스크롤바 크기*/
+#data::-webkit-scrollbar {
+  width: 10px;
+}
+/*스크롤바 꾸미기*/
+#data::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 117, 184);
+  border-radius: 10px;
+}
+
+/*클릭시 적용되는 각구의 css*/
+#main_visual .show_style p {
+  height: 15%;
+  font-family: "Sunflower", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#show_data1 .show_style p {
+  height: 50%;
+  font-family: "Sunflower", sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+}
+
+#search_img {
+  width: 80px;
+}
+
+#main_visual .show_style div {
+  font-family: "Sunflower", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}

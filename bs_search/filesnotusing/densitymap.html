@@ -1,0 +1,418 @@
+
+
+
+<!-- 구글맵에 부산을 검색하며 직접 하나하나 좌표를 찍어서 확인하며 만들었으며 인구밀도  -->
+<!-- 확인용으로 사용할려고 했으나 정확한 지도의 모양을 만드는 한계가 있어 사용은 X -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/kakaomap.css">
+
+	<!--font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family
+	=Do+Hyeon&family
+	=IBM+Plex+Sans+KR&family
+	=Jua&family
+	=Sunflower:wght@300&display=swap" rel="stylesheet">
+	
+</head>
+<body>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo -->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- navgation -->
+			<nav class="nav">
+				<!-- Main_menu -->
+				<ul class="main_menu">
+					<li><a href="map.html">HOME</a></li>
+					<li><a href="kidscafe.html">창업 장소 탐색하기</a></li>
+					 <li><a href="densitymap.html">인구 밀도 보기</a></li> 
+				</ul>
+			</nav>
+		</header>
+		<!-- section -->
+		<section id="section">
+			<div class="content">
+				<div class="search">
+					<div class="cafe_s">
+						<form method="get"> 
+							<input type="text" name="search">
+							<button type="submit" value="">검색</button>
+						</form>
+						<!-- 검색 결과 출력부분 -->
+						<ul id="list">
+							<li>부산광역시 0구 0시</li>
+							<li>부산광역시 0구 0시</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="api_map">
+					<p>전체 밀도 </p>
+					<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+					<div class="map_wrap">
+						<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+				
+						<div id="menu_wrap" class="bg_white">
+								<div class="option">
+										<div>
+												<form onsubmit="searchPlaces(); return false;">
+														키워드 : <input type="text" value="부경대학교 대연캠퍼스" id="keyword" size="15"> 
+														<button type="submit">검색하기</button> 
+												</form>
+										</div>
+								</div>
+								<hr>
+								<ul id="placesList"></ul>
+								<div id="pagination"></div>
+						</div>
+				</div>
+		
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=eb92c4cb1ef08334d28cb57b27ae3ab2&libraries=clusterer,services"></script>
+						<script src="js/KakaoMap.js"></script>
+						<script>
+// 지도에 폴리곤으로 표시할 영역데이터 배열입니다 
+var areas = [
+    {
+        name : '기장군',
+        path : [
+            new kakao.maps.LatLng(35.368790, 129.116550),
+            new kakao.maps.LatLng(35.363751, 129.146763),
+            new kakao.maps.LatLng(35.353671, 129.168735),
+            new kakao.maps.LatLng(35.362071, 129.192768),
+            new kakao.maps.LatLng(35.386706, 129.206501),
+            new kakao.maps.LatLng(35.386706, 129.240147),
+            new kakao.maps.LatLng(35.385027, 129.241520),
+            new kakao.maps.LatLng(35.378868, 129.267612),
+            new kakao.maps.LatLng(35.354791, 129.281345),
+            new kakao.maps.LatLng(35.337989, 129.292332),
+            new kakao.maps.LatLng(35.323984, 129.310871),
+            new kakao.maps.LatLng(35.315020, 129.275165),
+            new kakao.maps.LatLng(35.292605, 129.264179),
+            new kakao.maps.LatLng(35.261775, 129.241520),
+            new kakao.maps.LatLng(35.233176, 129.249760),
+            new kakao.maps.LatLng(35.211861, 129.225727),
+            new kakao.maps.LatLng(35.176509, 129.211994),
+            new kakao.maps.LatLng(35.199518, 129.198261),
+            new kakao.maps.LatLng(35.196712, 129.187962),
+            new kakao.maps.LatLng(35.208495, 129.174915),
+            new kakao.maps.LatLng(35.228689, 129.172855),
+            new kakao.maps.LatLng(35.261775, 129.137836),
+			new kakao.maps.LatLng(35.294847, 129.130970),
+			new kakao.maps.LatLng(35.307176, 129.112431),
+			new kakao.maps.LatLng(35.326786, 129.121357),
+			new kakao.maps.LatLng(35.350871, 129.132343),
+			new kakao.maps.LatLng(35.368790, 129.116550),
+        ]
+    }, {
+        name : '해운대구',
+        path : [
+            new kakao.maps.LatLng(35.250175, 129.141668),
+            new kakao.maps.LatLng(35.245129, 129.155057),
+            new kakao.maps.LatLng(35.235875, 129.157804),
+            new kakao.maps.LatLng(35.228864, 129.167417),
+            new kakao.maps.LatLng(35.219329, 129.168447),
+            new kakao.maps.LatLng(35.208389, 129.160551),
+            new kakao.maps.LatLng(35.206706, 129.175657),
+            new kakao.maps.LatLng(35.198571, 129.182867),
+            new kakao.maps.LatLng(35.190434, 129.189046),
+            new kakao.maps.LatLng(35.199693, 129.196599),
+            new kakao.maps.LatLng(35.196887, 129.207242),
+            new kakao.maps.LatLng(35.183981, 129.208272),
+            new kakao.maps.LatLng(35.173879, 129.212049),
+            new kakao.maps.LatLng(35.154793, 129.181493),
+            new kakao.maps.LatLng(35.157039, 129.140638),
+            new kakao.maps.LatLng(35.185384, 129.116605),
+            new kakao.maps.LatLng(35.200815, 129.116262),
+            new kakao.maps.LatLng(35.210914, 129.109395),
+            new kakao.maps.LatLng(35.215402, 129.118322),
+            new kakao.maps.LatLng(35.225499, 129.122098),
+            new kakao.maps.LatLng(35.237558, 129.134115),
+            new kakao.maps.LatLng(35.242044, 129.140981),
+			new kakao.maps.LatLng(35.250175, 129.141668),
+        ]
+    }, {
+        name : '금정구',
+        path : [
+            new kakao.maps.LatLng(35.307312, 129.106182),
+            new kakao.maps.LatLng(35.291901, 129.129871),
+            new kakao.maps.LatLng(35.254903, 129.139827),
+            new kakao.maps.LatLng(35.226301, 129.119571),
+            new kakao.maps.LatLng(35.211436, 129.104465),
+            new kakao.maps.LatLng(35.229106, 129.050220),
+            new kakao.maps.LatLng(35.262192, 129.0454144),
+            new kakao.maps.LatLng(35.291901, 129.061893)
+        ]
+    }, {
+        name : '동래구',
+        path : [
+            new kakao.maps.LatLng(35.224011, 129.058966),
+            new kakao.maps.LatLng(35.222468, 129.083685),
+            new kakao.maps.LatLng(35.205078, 129.111151),
+            new kakao.maps.LatLng(35.184737, 129.115099),
+            new kakao.maps.LatLng(35.198204, 129.080252),
+            new kakao.maps.LatLng(35.193715, 129.048151),
+            new kakao.maps.LatLng(35.199327, 129.043516),
+            new kakao.maps.LatLng(35.225694, 129.064116)
+        ]
+    }, {
+        name : '연제구',
+        path : [
+            new kakao.maps.LatLng(35.193548, 129.047447),
+            new kakao.maps.LatLng(35.199299, 129.079033),
+            new kakao.maps.LatLng(35.189199, 129.109932),
+            new kakao.maps.LatLng(35.176291, 129.112678),
+            new kakao.maps.LatLng(35.179939, 129.098430),
+            new kakao.maps.LatLng(35.159171, 129.092079),
+            new kakao.maps.LatLng(35.162399, 129.079204),
+            new kakao.maps.LatLng(35.179238, 129.074398),
+            new kakao.maps.LatLng(35.190882, 129.047962)
+        ]
+    }, {
+        name : '수영구',
+        path : [
+            new kakao.maps.LatLng(35.185465, 129.116044),
+            new kakao.maps.LatLng(35.153892, 129.137158),
+            new kakao.maps.LatLng(35.137189, 129.111581),
+            new kakao.maps.LatLng(35.167225, 129.091668),
+            new kakao.maps.LatLng(35.179292, 129.096818),
+            new kakao.maps.LatLng(35.180134, 129.106088),
+            new kakao.maps.LatLng(35.175925, 129.112267),
+            new kakao.maps.LatLng(35.185606, 129.115186),
+        ]
+    }, {
+        name : '남구',
+        path : [
+            new kakao.maps.LatLng(35.160350, 129.095533),
+            new kakao.maps.LatLng(35.141542, 129.101713),
+            new kakao.maps.LatLng(35.136769, 129.115103),
+            new kakao.maps.LatLng(35.127222, 129.107206),
+            new kakao.maps.LatLng(35.118798, 129.128492),
+            new kakao.maps.LatLng(35.090992, 129.125746),
+            new kakao.maps.LatLng(35.094644, 129.098280),
+            new kakao.maps.LatLng(35.104756, 129.073561),
+            new kakao.maps.LatLng(35.114305, 129.075277),
+            new kakao.maps.LatLng(35.126661, 129.062918),
+            new kakao.maps.LatLng(35.147999, 129.070128),
+            new kakao.maps.LatLng(35.156981, 129.089354)
+        ]
+    }, {
+		name : '북구',
+        path : [
+            new kakao.maps.LatLng(35.199275, 128.987506),
+            new kakao.maps.LatLng(35.237982, 129.003643),
+            new kakao.maps.LatLng(35.276950, 129.017375),
+            new kakao.maps.LatLng(35.276109, 129.040721),
+            new kakao.maps.LatLng(35.242749, 129.049304),
+            new kakao.maps.LatLng(35.228727, 129.054454),
+            new kakao.maps.LatLng(35.199836, 129.042438),
+            new kakao.maps.LatLng(35.192823, 129.000553)
+        ]
+    }, {
+		name : '진구',
+        path : [
+            new kakao.maps.LatLng(35.172790, 129.009215),
+            new kakao.maps.LatLng(35.198043, 129.038226),
+            new kakao.maps.LatLng(35.177841, 129.073073),
+            new kakao.maps.LatLng(35.174894, 129.078051),
+            new kakao.maps.LatLng(35.151178, 129.077193),
+            new kakao.maps.LatLng(35.146546, 129.063460),
+            new kakao.maps.LatLng(35.144861, 129.039771),
+            new kakao.maps.LatLng(35.134754, 129.018828),
+            new kakao.maps.LatLng(35.173632, 129.009044),
+
+        ]
+    }, {
+		name : '동구',
+        path : [
+            new kakao.maps.LatLng(35.106838, 129.048288),
+            new kakao.maps.LatLng(35.131302, 129.063005),
+           	 new kakao.maps.LatLng(35.141784, 129.052561),
+            	new kakao.maps.LatLng(35.146636, 129.040930),
+            new kakao.maps.LatLng(35.137514, 129.029061),
+            new kakao.maps.LatLng(35.123148, 129.025263),
+            new kakao.maps.LatLng(35.108197, 129.041167),
+			new kakao.maps.LatLng(35.104389, 129.047764),
+			
+        
+        ]
+    }, {
+		name : '중구',
+        path : [
+        new kakao.maps.LatLng(35.102027, 129.024183),
+		new kakao.maps.LatLng(35.098286, 129.039101),
+		new kakao.maps.LatLng(35.104389, 129.047764),
+		new kakao.maps.LatLng(35.110688, 129.039342),
+		new kakao.maps.LatLng(35.114822, 129.025626)
+		
+
+
+        
+        ]
+    }, {
+		name : '사상구',
+        path : [
+            new kakao.maps.LatLng(35.201327, 128.985203),
+            new kakao.maps.LatLng(35.184102, 128.967198),
+            new kakao.maps.LatLng(35.156461, 128.968955),
+            new kakao.maps.LatLng(35.126656, 128.962807),
+			new kakao.maps.LatLng(35.120314, 128.949238),
+            new kakao.maps.LatLng(35.125369, 128.979451),
+            new kakao.maps.LatLng(35.121438, 128.996617),
+        	new kakao.maps.LatLng(35.125369, 128.979451),
+            new kakao.maps.LatLng(35.121438, 128.996617),
+            new kakao.maps.LatLng(35.123122, 128.998677),
+			new kakao.maps.LatLng(35.162205, 129.011990),
+            new kakao.maps.LatLng(35.187691, 129.016381),
+            new kakao.maps.LatLng(35.201327, 128.985203),
+
+        ]
+    }, {
+		name : '서구',
+        path : [
+          
+            new kakao.maps.LatLng(35.121438, 128.996617),
+            new kakao.maps.LatLng(35.123122, 128.998677),
+            new kakao.maps.LatLng(35.050795, 129.015167),
+            new kakao.maps.LatLng(35.066252, 129.023406),
+            new kakao.maps.LatLng(35.094348, 129.025810),
+            new kakao.maps.LatLng(35.126084, 129.022720),
+
+        ]
+    }, {
+		name : '사하구',
+        path : [
+            new kakao.maps.LatLng(35.032089, 128.967091),
+            new kakao.maps.LatLng(35.086047, 128.925892),
+            new kakao.maps.LatLng(35.120314, 128.949238),
+            new kakao.maps.LatLng(35.125369, 128.979451),
+            new kakao.maps.LatLng(35.121438, 128.996617),
+            new kakao.maps.LatLng(35.123122, 128.998677),
+            new kakao.maps.LatLng(35.088295, 129.005543),
+            new kakao.maps.LatLng(35.068065, 128.992497),
+            new kakao.maps.LatLng(35.043333, 129.001423),
+			new kakao.maps.LatLng(35.032089, 128.967091),
+]
+    }, {
+		name : '강서구',
+        path : [
+            new kakao.maps.LatLng(35.155243, 128.796347),
+            new kakao.maps.LatLng(35.125484, 128.832740),
+            new kakao.maps.LatLng(35.102455, 128.824500),
+            new kakao.maps.LatLng(35.094028, 128.823127),
+            new kakao.maps.LatLng(35.089533, 128.860892),
+            new kakao.maps.LatLng(35.076048, 128.878058),
+            new kakao.maps.LatLng(35.118744, 128.902778),
+            new kakao.maps.LatLng(35.089533, 128.904837),
+            new kakao.maps.LatLng(35.122676, 128.938483),
+            new kakao.maps.LatLng(35.197337, 128.970069),
+            new kakao.maps.LatLng(35.216413, 129.000281),
+            new kakao.maps.LatLng(35.233801, 128.990668),
+            new kakao.maps.LatLng(35.227631, 128.932990),
+            new kakao.maps.LatLng(35.207998, 128.876685),
+            new kakao.maps.LatLng(35.179380, 128.879432),
+            new kakao.maps.LatLng(35.158050, 128.831366),
+			new kakao.maps.LatLng(35.155243, 128.796347),
+        ]
+    }, {
+        name : '영도구',
+        path : [
+            new kakao.maps.LatLng(35.080497, 129.035880),
+            new kakao.maps.LatLng(35.087651, 129.042124),
+            new kakao.maps.LatLng(35.094548, 129.049617),
+            new kakao.maps.LatLng(35.093781, 129.065851),
+            new kakao.maps.LatLng(35.079220, 129.081773),
+            new kakao.maps.LatLng(35.046000, 129.098319),
+            new kakao.maps.LatLng(35.051878, 129.084583),
+            new kakao.maps.LatLng(35.049834, 129.072407),
+            new kakao.maps.LatLng(35.064145, 129.056797),
+            new kakao.maps.LatLng(35.081519, 129.035880),
+			new kakao.maps.LatLng(35.080497, 129.035880),
+           
+        ]
+    }
+];
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(35.15651030276045, 129.05599693292487), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption),
+    customOverlay = new kakao.maps.CustomOverlay({}),
+    infowindow = new kakao.maps.InfoWindow({removable: true});
+
+// 지도에 영역데이터를 폴리곤으로 표시합니다 
+for (var i = 0, len = areas.length; i < len; i++) {
+    displayArea(areas[i]);
+}
+
+// 다각형을 생상하고 이벤트를 등록하는 함수입니다
+function displayArea(area) {
+
+    // 다각형을 생성합니다 
+    var polygon = new kakao.maps.Polygon({
+        map: map, // 다각형을 표시할 지도 객체
+        path: area.path,
+        strokeWeight: 2,
+        strokeColor: '#004c80',
+        strokeOpacity: 0.8,
+        fillColor: '#fff',
+        fillOpacity: 0.7 
+    });
+
+    // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
+    // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+    kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
+        polygon.setOptions({fillColor: '#09f'});
+
+        customOverlay.setContent('<div class="area">' + area.name + '</div>');
+        
+        customOverlay.setPosition(mouseEvent.latLng); 
+        customOverlay.setMap(map);
+    });
+
+    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
+    kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
+        
+        customOverlay.setPosition(mouseEvent.latLng); 
+    });
+
+    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+    // 커스텀 오버레이를 지도에서 제거합니다 
+    kakao.maps.event.addListener(polygon, 'mouseout', function() {
+        polygon.setOptions({fillColor: '#fff'});
+        customOverlay.setMap(null);
+    }); 
+
+    // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다 
+    kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+        var content = '<div class="info">' + 
+                    '   <div class="title">' + area.name + '</div>' +
+                    '   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></area>' +
+                    '</div>';
+
+        infowindow.setContent(content); 
+        infowindow.setPosition(mouseEvent.latLng); 
+        infowindow.setMap(map);
+    });
+}
+</script>
+</body>
+</html>

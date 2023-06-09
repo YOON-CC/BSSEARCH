@@ -1,0 +1,510 @@
+/*초기화*/
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 50;
+  font-style: black;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* visited - 한번 클릭하거나 전에 클릭한적 있을 경우 #c71d44 설정 */
+
+/*전체*/
+#wrap {
+  width: 100%;
+  height: 100vh; /*높이 화면 사이즈에 맞추기*/
+  overflow-x: hidden;
+  position: relative;
+}
+
+/*header*/
+#header {
+  background: #71c1ef;
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: 0;
+  z-index: 6;
+}
+
+/*로고*/
+#header .logo {
+  display: inline-block;
+  padding: 30px 40px;
+}
+/* 로고 이미지 */
+#header .logo img {
+  width: 156px;
+  height: 40px;
+  animation: fadeIn 2s forwards;
+}
+
+/*사이트맵*/
+#sitemap {
+  display: inline-block;
+  position: relative;
+  float: right;
+  width: 400px;
+  padding-top: 25px;
+  padding-right: 2px;
+}
+
+.sitemap_menu li {
+  display: inline-block;
+  position: relative;
+  margin: 0px;
+  padding: 0px 3px 0px 3px;
+  right: 7%;
+  float: right;
+  font-family: "Sunflower", sans-serif;
+}
+
+.sitemap_menu li a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.sitemap_menu li a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/*navgation*/
+/*메인 메뉴*/
+.nav {
+  position: relative;
+  top: -5%;
+  width: auto;
+  display: inline-block;
+  height: 100%;
+  font-family: "Do Hyeon", sans-serif;
+}
+.nav .main_menu {
+  display: inline-block;
+  width: auto;
+}
+.nav .main_menu li {
+  display: inline-block;
+  padding: 20px;
+  animation: fadeIn 2s forwards;
+}
+.nav .main_menu li a {
+  font-size: 25px;
+  color: white;
+  transition: all 0.3s; /*hover시 부드럽게 처리*/
+}
+.nav .main_menu li:hover a {
+  color: #2b4f63;
+}
+
+/*section*/
+#section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/*   #####################메인 시작화면에 관한 ###################################### css*/
+/*메인 이미지 부분*/
+#main_visual {
+  width: 100%;
+  height: 100%;
+  background: #71c1ef;
+  position: relative;
+}
+/*메인 텍스트 부분*/
+#main_visual .main_text {
+  z-index: 10;
+  right: 20%;
+  display: block;
+  position: absolute;
+  animation: text_move 2s forwards;
+}
+#main_visual .main_text p {
+  font-family: "Sunflower", sans-serif;
+  font-size: 84px;
+  color: black;
+  font-weight: bold;
+  animation: fadeIn 5s forwards;
+}
+#main_visual .main_text p span {
+  font-family: "Sunflower", sans-serif;
+  font-size: 48px;
+}
+/*마커 이미지*/
+#main_visual .back_img .mark {
+  position: absolute;
+  z-index: 10;
+  right: 10%;
+  bottom: 45%;
+  height: auto;
+  width: 3%;
+  animation: mark_move 2s linear infinite;
+}
+#main_visual .back_img .mark img {
+  width: 100%;
+  animation: fadeIn 5s forwards;
+}
+
+/*음식 이미지*/
+#main_visual .food {
+  z-index: 15;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+#main_visual .food .food_img {
+  width: 100%;
+}
+#main_visual .food .food_img li {
+  margin: 0 1%;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.5);
+  width: 13%;
+  border-radius: 100%;
+  float: left;
+  animation: fadeIn 5s forwards;
+  transition: all 0.5s;
+}
+#main_visual .food .food_img li img {
+  margin: 0 15%;
+  padding: 13% 0;
+  width: 70%;
+}
+#main_visual .food .food_img li:hover {
+  background: rgba(68, 171, 230, 0.5);
+}
+
+/*도시 이미지*/
+#main_visual .back_img .city img {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  height: auto;
+  z-index: 1; /*우선순위 설정*/
+  animation-delay: 1s;
+  animation-name: back_move;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+/*구름 이미지*/
+#main_visual .back_img .cloud img {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  height: auto;
+  animation: back_move 3s forwards;
+}
+.foodtruck {
+  position: absolute;
+  top: 68%;
+  left: -30%;
+  transform: translate(-50%, -50%);
+  animation-delay: 3s; /*지연시간*/
+  animation-name: move; /*애니메이션 이름*/
+  animation-duration: 3s; /*시작 초*/
+  animation-fill-mode: forwards; /*애니메이션이 끝난후 계속 적용*/
+  z-index: 2; /*우선순위 설정*/
+}
+.foodtruck img {
+  width: 100%;
+}
+
+/*오른쪽 타이어*/
+.foodtruck .ti01 {
+  right: 6%;
+}
+/*왼쪽 타이어*/
+.foodtruck .ti02 {
+  left: 20.8%;
+}
+/*전체 타이어*/
+.foodtruck .ti-rotate {
+  position: absolute;
+  bottom: -15%;
+  width: 17%;
+  z-index: -1;
+  animation-delay: 3s; /*지연시간*/
+  animation-name: ti-rotate; /*애니메이션 이름*/
+  animation-duration: 4s; /*시작 초*/
+  animation-fill-mode: linear; /*애니메이션이 끝난후 계속 적용*/
+}
+/*애니메이션 효과*/
+.box {
+  animation: fadeIn 4s forwards;
+}
+
+
+/*꾸미기*/
+.kid_img {
+  margin: 0;
+  width: 26%;
+}
+
+/*애니메이션 효과들*/
+/*트럭 이동 애니메이션*/
+@keyframes move {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 30%;
+  }
+}
+
+/*타이어 애니메이션*/
+@keyframes ti-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes back_move {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+/*text 애니메이션*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes text_move {
+  0% {
+    top: 5%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+/*mark 애니메이션*/
+@keyframes mark_move {
+  0% {
+    bottom: 45%;
+  }
+  50% {
+    bottom: 43%;
+  }
+  100% {
+    bottom: 45%;
+  }
+}
+
+/* ###############################api 지도 영역################################ */
+/*content*/
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.content > div {
+  float: left;
+}
+
+/* 지도 검색 창 부분*/
+.search {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.search form{
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  padding: 2%;
+}
+.search form input{
+  font-size: 16px;
+  width: 100%;
+  border: 0 px;
+  outline: none;
+  padding: 2%;
+}
+
+/*검색 결과 출력*/
+
+#list {
+  margin: 10% 0;
+  display: block;
+  width: 80%;
+  float: left;
+}
+#list li {
+  width: 100%;
+  padding: 10% 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.api_map {
+  width: 100%;
+  height: 100%;
+}
+/*.api_map p {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-size: 30px;
+}*/
+
+
+/* ######################이용안내, 정보 탭 구성, 왼쪽옆에 있는 메뉴 ##########################*/
+#hwt_main {
+  display: block;
+}
+
+/*왼쪽 메뉴*/
+#left_content {
+  width: 227px;
+  height: 30%;
+  margin: 0 auto;
+  float: left;
+}
+
+.left_menu li {
+  font-size: 0px;
+  line-height: 0px;
+}
+
+/*오른쪽 내용 부분*/
+#right_content {
+  width: 65%;
+  margin: 0 auto;
+  float: center;
+  left: 4%;
+  background-color: rgb(255, 255, 255);
+}
+
+#R_title {
+  width: 100%;
+  margin: 26px 0px 32px 0px;
+  padding-bottom: 7px;
+  border-bottom: 3px #dbdad2 solid;
+}
+
+#title_text {
+  font-family: "Sunflower", sans-serif;
+  font-size: large;
+}
+
+.title_root {
+  font-family: "Noto Sans", sans-serif;
+  text-align: end;
+}
+
+.title_root a:visited {
+  /*경로 클릭 시 해당 페이지로 이동*/
+  color: gray;
+  text-decoration: none;
+}
+
+#Rcontent {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/*이용안내 페이지 구성*/
+#hwt_title {
+  font-size: 30px;
+  font-family: "Sunflower", sans-serif;
+}
+#hwt_title p {
+  font-size: 100px;
+}
+#step_img {
+  width: 80%;
+  float: left;
+  display: block;
+}
+#step_img img {
+  width: 100%;
+  float: left;
+}
+#step_text {
+  width: 55%;
+  height: auto;
+}
+#step_text p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+}
+.hwt_img {
+  width: 90%;
+  display: inline-block;
+}
+
+.hwt_img img {
+  width: 100%;
+}
+
+.hwt_text {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  font-style: oblique;
+}
+
+#nextlevel {
+  position: relative;
+  width: 50%;
+  font-family: "Sunflower", sans-serif;
+  font-size: 25px;
+  float: right;
+}
+
+#nextlevel a:link {
+  color: black;
+  text-decoration: none;
+}
+
+#nextlevel a:visited {
+  color: black;
+  text-decoration: none;
+}
+#peopleimg {
+  width: 40%;
+  float: left;
+  display: inline-block;
+}
+
+#peopleimg img {
+  width: 100%;
+}
+
+#hwtinfo_text {
+  width: 50%;
+  position: relative;
+  left: 10%;
+  display: inline-block;
+}
+
+/*footer*/
+#footer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgb(231, 231, 231);
+}
+
+#footer .line img {
+  margin: 0 auto;
+  top: 100%;
+}
+
+#footer .footer_content div {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  display: inline-block;
+}
+#copyright {
+  position: relative;
+}

@@ -1,0 +1,127 @@
+<!-- 창업정보 탭 클릭 후 왼쪽 메뉴에 민간 사이트 클릭시 보여지는 화면 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- meta charset = utf-8 는 html 파일의 인코딩을 알려주는 태그 -->
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 웹페이지를 실행했을 때 사오는 화면의 너비를 디바이스에 따르도록 지정하는데
+		 초기 확대 scale을 1 로 지정  -->
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+
+	<!--font-->
+	<!-- link preconnect 으로 현제 페이지에서 도메인의 리소스 참고하는것을 브라우저에
+		 알려 미리 외부 도메인과 연결 설정 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo 로고를 클릭하면 메인 페이지로 이동-->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- sitemap index.html 즉 메인페이지를 제외하고 다른 탭창을 클릭한 
+				상태로 있으면 오른쪽 위에 home으로 돌아가기 클릭하면 메인 페이지로 이동-->
+			<div id="sitemap">
+				<ul class="sitemap_menu">
+					<li><a href="index.html"><img src="img/home.png" width="20px"> home으로 돌아가기&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<!-- navgation 위에 네비게이션바-->
+			<nav class="nav">
+				<!-- Main_menu -->
+				<!-- 위에 보여지는 메인 메뉴바  -->
+				<ul class="main_menu">
+					<li><a href="howto.html">이용안내</a></li>
+					<li><a href="map.html">부산 둘러보기</a></li>
+					<li><a href="bs_location.html">창업 장소 탐색하기</a></li>
+					<li><a href="if_public.html">창업 정보</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+			<!-- content body-->
+			<div id=hwt_main>
+				<!-- 배너 사진 넣기, 위에 메뉴바 바로 밑에 들어가는 이미지 입니다.  -->
+				<div id="banner_img">
+					<img src="img/bssearch_banner.png" alt="" width="1800">
+				</div>
+				<!-- LeftContent-->
+				<div id="left_content">
+					<!-- 왼쪽에 메뉴 부분에 관한 이미지와 링크에 관한 내용입니다 -->
+					<ul class="left_menu">
+						<!-- 창업 준비를 위해 공공 사이트와 민간 사이트 제공 메뉴로 분류 -->
+							<li id="menu_title"><img src="img/leftmenu/menu_title.png" width="227px" alt="BSSEARCH"></li>
+							<li id="menu2"><a href="if_public.html" target="_self" >
+								<!-- onmouse 으로 마우스를 가져다 대면 이미지 변경 즉 배경의 색 변경  -->
+								<img src="img/leftmenu/menu_public.png" width="227px" onmouseover="this.src='img/leftmenu/menu_publicon.png'" onmouseout="this.src='img/leftmenu/menu_public.png'" alt="공공사이트 목록"></a></li>
+							<li id="menu3"><a href="if_private.html" target="_self" >
+								<img src="img/leftmenu/menu_private.png"width="227px" onmouseover="this.src='img/leftmenu/menu_privateon.png'" onmouseout="this.src='img/leftmenu/menu_private.png'" alt="민간사이트 목록"></a></li>
+				</div>
+				<!-- RightContent-->
+				<div id="right_content">
+					<div class="R_board">
+							<div id="R_title">
+								<!-- 민간 사이트 목록 메뉴 클릭시 나오는 내용  -->
+								<div id="title_text"><h2>민간 사이트 목록</h2></div>
+								<div class="title_root"><a href="index.html" target="_self" class="prve_boardname">Home</a> &gt; 
+																				<a href="information.html" class="prve_boardname">창업 정보</a> &gt; 
+																				<a href="if_private.html" class="boardname">민간 사이트 목록</a></div>
+							</div>
+							<div id="Rcontent">
+								<div id=hwt_title><img src="img/circle.png" width="15px">     이미지를 클릭하시면 곧바로 창업 정보 사이트로 이동할 수 있습니다.<br><br></div>
+								<div style="padding:0px 0px 0px 0px !important;"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<!-- 이미지 표로 공공 데이터 사이트 표시  -->
+										<!-- 창업 준비를 위해 제공되는 민간 사이트 목록 으로 이미지를 넣었고 링크가 삽입되어있어 클릭시 바로  
+											해당 링크로 이동하게 됩니다. -->
+									<tbody>
+										<tr>
+											<td><a href="http://blog.wishket.com/" target="_blank">
+												<img alt="위시캣블로그" border="0" height="108" src="img/private_s1.png" rel="xe_gallery"></a></td>
+											<td><a href="https://startup-factory.co.kr/category/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%20%EB%8F%99%ED%96%A5%20%EB%B0%8F%20%ED%8A%B8%EB%A0%8C%EB%93%9C/%EC%B0%BD%EC%97%85%20%EA%BF%80%ED%8C%81%20%EB%B0%8F%20%EC%86%8C%EC%8B%9D
+												" target="_blank"><img alt="창업FACTORY" border="0" height="108" src="img/private_s2.png" rel="xe_gallery"></a></td>
+											<td><a href="https://www.trendbiz.co.kr/news/articleView.html?idxno=1000" target="_blank">
+												<img alt="트렌드경제" border="0" height="108" src="img/private_s3.png" rel="xe_gallery"></a></td>
+											<td><a href="https://sharehows.com/80970" target="_blank">
+												<img alt="쉐어하우스" border="0" height="108" src="img/private_s4.png" width="273" rel="xe_gallery"></a></td>
+										</tr>
+									</tbody>
+								</table></div>
+								<div><br><br><br><br><br><br><br><br><br><br></div>
+							</div>
+					</div>
+				</div>
+			</div>
+				<!-- Footer-->
+			<footer id="footer">	
+				<!-- 구분선 -->
+				<div id=line><img src="img/line.png"></div>
+				<div class="footer_content">
+					<div id="footer_logo">
+						<!-- 좌측하단을 보시면BSSEARCH로고 와 copyright 에 관한 내용이 기재 되어있습니다.’ -->
+						<img src="img/footerlogo.png" alt="카피라이터" width="15%">
+						<div id="copyright">인터넷 프로그래밍 6조<br>Copyright(C) PUKYONG NATIONAL UNIVERSITY. All Rights Reserved.<br><br><br></div>
+					</div>
+				</div>	
+			</footer>
+	</div>
+	
+	
+			
+	
+	</div>
+</body>
+</html>

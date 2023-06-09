@@ -1,0 +1,117 @@
+<!-- 이용안내 탭 클릭 후 왼쪽 메뉴에 부산 둘러보기 클릭시 보여지는 화면 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+
+	<!--font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo -->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- sitemap-->
+			<div id="sitemap">
+				<ul class="sitemap_menu">
+					<li><a href="index.html"><img src="img/home.png" width="20px"> home으로 돌아가기&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<!-- navgation -->
+			<nav class="nav">
+				<!-- Main_menu -->
+				<ul class="main_menu">
+					<li><a href="howto.html">이용안내</a></li>
+					<li><a href="map.html">부산 둘러보기</a></li>
+					<li><a href="bs_location.html">창업 장소 탐색하기</a></li>
+					<li><a href="if_public.html">창업 정보</a></li>
+				</ul>
+			</nav>
+		</header>
+
+			<!-- content body-->
+		<div id=hwt_main>
+			<div id="banner_img">
+				<img src="img/bssearch_banner.png" alt="" width="1800">
+			</div>
+			<!-- LeftContent-->
+			<div id="left_content">
+				<ul class="left_menu">
+					<!-- 왼쪽에 메뉴 부분에 관한 이미지와 링크에 관한 내용입니다 -->
+						<li id="menu_title"><img src="img/leftmenu/menu_title.png" width="227px" alt="BSSEARCH"></li>
+						<li id="menu1"><a href="howto.html" target="_self" >
+							<!-- onmouse 으로 마우스를 가져다 대면 이미지 변경 즉 배경의 색 변경  -->
+							<img src="img/leftmenu/menu1.png" width="227px" onmouseover="this.src='img/leftmenu/menu1on.png'" onmouseout="this.src='img/leftmenu/menu1.png'" alt="BSSEARCH란?"></a></li>
+						<li id="menu_information"><img src="img/leftmenu/이용안내.png" width="227px" alt="이용안내"></li>
+						<li id="menu2"><a href="ht_step.html" target="_self" >
+							<img src="img/leftmenu/menu2.png" width="227px" onmouseover="this.src='img/leftmenu/menu2on.png'" onmouseout="this.src='img/leftmenu/menu2.png'" alt="사이트 이용 순서도"></a></li>
+						<li id="menu4"><a href="ht_map.html" target="_self" >
+							<img src="img/leftmenu/menu4.png" width="227px" onmouseover="this.src='img/leftmenu/menu4on.png'" onmouseout="this.src='img/leftmenu/menu4.png'" alt="부산 둘러보기"></a></li>
+						<li id="menu5"><a href="ht_bslocation.html" target="_self" >
+							<img src="img/leftmenu/menu5.png" width="227px" onmouseover="this.src='img/leftmenu/menu5on.png'" onmouseout="this.src='img/leftmenu/menu5.png'" alt="창업 장소 탐색하기"></a></li>
+						<li id="menu6"><a href="ht_information.html" target="_self" >
+							<img src="img/leftmenu/menu6.png" width="227px" onmouseover="this.src='img/leftmenu/menu6on.png'" onmouseout="this.src='img/leftmenu/menu6.png'" alt="창업 정보"></a><img src="" alt=""></li>
+				</ul>
+			</div>
+			<!-- RightContent-->
+			<div id="right_content">
+				<div class="R_board">
+						<div id="R_title">
+								<!-- BSSEARCH란? 해당되는 내용이 나오고 
+							내용의 제목 바로 밑에 메뉴의 현재 보여지고 있는 사이트의 경로가 보여지게 됩니다.  -->
+							<div id="title_text"><h2>부산 둘러보기 이용안내</h2></div>
+							<div class="title_root"><a href="index.html" target="_self" class="prve_boardname">Home</a> &gt; 
+																			<a href="howto.html" class="prve_boardname">이용안내</a> &gt; 
+																			<a href="ht_map.html" class="boardname">부산 둘러보기</a></div>
+						</div>
+						<div id="Rcontent">
+							<!-- 부산둘러보기 메뉴 클릭시 나오게 되는 화면의 내용  -->
+							<div id=hwt_title><img src="img/circle.png" width="15px">     사용 방법<br><br></div>
+							<div class=hwt_text><b>1. 첫 화면</b><br><br></div>
+							<div class=hwt_img><img src="img/hwt1_1.png"><br><br><br><br></div>
+							<div class=hwt_text><b>2. 원하는 구 클릭</b><br><br></div>
+							<div class=hwt_img><img src="img/hwt1_2.png"><br><br><br><br></div>
+							<div class=hwt_text><b>3. 탐색을 원하는 학교 주소 복사</b><br><br></div>
+							<div class=hwt_img><img src="img/hwt1_3.png"><br><br><br><br><br><br><br><br></div>
+							<div id=nextlevel><a href="ht_bslocation.html"><img src="img/arrow.png" width="30px"><b>  '창업 장소 탐색하기' 이용안내로 넘어가기 &gt;&gt;</b></a></div>
+							<div> <br><br><br><br><br><br></div>
+						</div>
+				</div>
+			</div>
+		</div>
+			<!-- Footer-->
+		<footer id="footer">	
+			<!-- 구분선 -->
+			<div id=line><img src="img/line.png"></div>
+			<div class="footer_content">
+				<div id="footer_logo">
+					<!-- 좌측하단을 보시면BSSEARCH로고 와 copyright 에 관한 내용이 기재 되어있습니다. -->
+					<img src="img/footerlogo.png" alt="카피라이터" width="15%">
+					<div id="copyright">인터넷 프로그래밍 6조<br>Copyright(C) PUKYONG NATIONAL UNIVERSITY. All Rights Reserved.<br><br><br></div>
+				</div>
+			</div>	
+		</footer>
+</div>
+
+
+		
+
+</body>
+</html>

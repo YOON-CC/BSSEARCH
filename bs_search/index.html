@@ -1,0 +1,80 @@
+<!-- 처음 시작화면 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- meta charset = utf-8 는 html 파일의 인코딩을 알려주는 태그 -->
+	<meta charset="utf-8">
+<!-- 웹페이지를 실행했을 때 사오는 화면의 너비를 디바이스에 따르도록 지정하는데 초기 확대 scale을 1 로 지정  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BSSEARCH</title>
+
+	<!--viewport-->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+
+	<!--font-->
+	<!-- link preconnect 으로 현제 페이지에서 도메인의 리소스 참고하는것을 브라우저에
+		 알려 미리 외부 도메인과 연결 설정 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!-- 전체 -->
+	<div id="wrap">
+		<!-- header -->
+		<header id="header">
+			<!-- logo -->
+			<div class="logo"><a href="index.html"><img src="img/logo_w.png"></a></div>
+			<!-- navgation 위에 네비게이션바-->
+			<div class="nav">
+				<!-- Main_menu -->
+				<!-- 위에 보여지는 메인 메뉴바  -->
+				<ul class="main_menu">
+					<li><a href="howto.html">이용안내</a></li>
+					<li><a href="map.html">부산 둘러보기</a></li>
+					<li><a href="bs_location.html">창업 장소 탐색하기</a></li>
+					<li><a href="if_public.html">창업 정보</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- section -->
+		<section id="section">
+			<!-- 메인 visual: 애니메이션 효과 -->
+			<div id="main_visual">
+				<!-- 음식 이미지들 -->
+				<div class="food">
+					<ul class="food_img">
+						<!-- 동그라미 3개 그림들  -->
+						<li><img src="img/fishbread.png"></li> <!-- 붕어빵 -->
+						<li><img src="img/dalgona.png"></li>  <!-- 달고나 -->
+						<li><img src="img/taco.png"></li>  <!-- 타코야끼 -->
+					</ul>
+				</div>
+				<!-- 배경 이미지 ( 마커,도시,구름 ) -->
+				<div class="back_img">
+					<div class="mark"><img src="img/mark.png"></div> <!-- 둥둥 떠다니는 빨간색 마커  -->
+					<div class="city"><img src="img/back.png"></div> <!-- 도시 그림 -->
+					<div class="cloud"><img src="img/back_w.png"></div> <!-- 구름 그림 -->
+				</div>
+				<!-- 푸드트럭 이미지 -->
+				<div class="foodtruck">
+					<img src="img/foodtruck.png">
+					<!-- 자동차 타이어 이미지 -->
+					<img src="img/ti.png" class="ti01 ti-rotate">
+					<img src="img/ti.png" class="ti02 ti-rotate">
+				</div>
+				<div class="main_text">
+					<p>창업을 위한<br>
+						 최적의 장소<span>를 <br>알고싶다면</span></p>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

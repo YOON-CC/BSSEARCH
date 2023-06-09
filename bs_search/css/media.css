@@ -1,0 +1,139 @@
+/*반응형 css*/
+
+/*노트북 사이즈*/
+/*1440*900사이즈*/
+@media screen and (max-width: 1440px){
+	/*메인 텍스트 부분*/
+	#main_visual .main_text{right: 15%;}
+	#main_visual .main_text p {
+	  font-size: 64px;
+	}
+	#main_visual .main_text p span{
+		font-size: 38px;
+	}
+	/*푸드트럭 */
+	.foodtruck {
+		top: 70%;
+	}
+	.foodtruck img{
+		width: 70%;
+	}
+	/*푸드트럭 타이어*/
+	.foodtruck .ti-rotate{
+		width: 12%;
+	}
+	/*오른쪽 타이어*/
+	.foodtruck .ti01{
+		right: 34%;
+	}
+	/*왼쪽 타이어*/
+	.foodtruck .ti02{
+		left: 14.7%;
+	}
+}
+
+/*1280 사이즈*/
+@media screen and (max-width: 1280px){
+	.foodtruck{
+		top: 65%;
+	}
+}
+/*1024*786 사이즈*/
+@media screen and (max-width: 1024px){
+	/*header*/
+	#header .logo img{
+		width: 120px;
+		height: 31px;
+	}
+	/*nav 글자크기*/
+	.nav .main_menu li a {
+	  font-size: 20px;
+	}
+	/*메인 텍스트 부분*/
+	#main_visual .main_text{right: 15%;}
+	#main_visual .main_text p {
+	  font-size: 54px;
+	}
+	#main_visual .main_text p span{
+		font-size: 35px;
+	}
+	.foodtruck{
+		width: 60%;
+	}
+	/*애니메이션*/
+	@keyframes back_move {
+	  0% {
+	    bottom: -100%;
+	  }
+	  100% {
+	    bottom: 10%;
+	  }
+	}
+	@keyframes move {
+	  0% {
+	    left: -20%;
+	  }
+	  100% {
+	    left: 30%;
+	  }
+	}
+}
+
+/*태블릿 사이즈*/
+/*800 사이즈*/
+@media screen and (max-width: 800px){
+	#header .logo{
+		width: 100%;
+		text-align: center;
+		padding: 5% 0;
+	}
+	.nav{
+		width: 100%;
+		text-align: center;
+	}
+	#main_visual .main_text{
+		transform: translate(0%, 10%);
+	}
+	#main_visual .food{
+		top: 40%;
+		left: 35%;
+	}
+	#main_visual .back_img .mark {
+		bottom: 23%;
+	}
+	.foodtruck{
+		top: 75%;
+	}
+	/*애니메이션*/
+	@keyframes mark_move {
+	  0% {
+	    bottom: 27%;
+	  }
+	  50% {
+	    bottom: 25%;
+	  }
+	  100% {
+	    bottom: 27%;
+	  }
+	}
+}
+
+/*425 사이즈*/
+@media screen and (max-width: 480px){
+	.nav .main_menu li{
+		padding: 5% 0;
+		width: 100%;
+	}
+	#main_visual .main_text{
+		transform: translate(0, 50%);
+	}
+	#main_visual .food{
+		display: none;
+	}
+	#main_visual .foodtruck{
+		display: none;
+	}
+	#main_visual .back_img .mark {
+		display: none;
+	}
+}
